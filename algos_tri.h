@@ -17,6 +17,31 @@ void swap(int *a, int *b)
     *b = tmp;
 }
 
+void merge_sort(int *t,int size){
+    if(size <=1 ){
+        return;
+    }
+    int mid = size/2;
+    int *left=(int*)malloc(sizeof(int)*mid);
+    int *right;(int*)malloc(sizeof(int)*(size-mid));
+
+    for (int i = 0; i < mid; i++)
+    {
+        left[i]=t[i];
+    }
+    for (int i = mid+1; i < size; i++)
+    {
+        right[i]=t[i];
+    }
+    
+   
+    
+}
+
+void merge(int *t1,int *t2){
+
+}
+
 void bulles(int *t, int size)
 {
     for (int i = 0; i < size; i++)
@@ -48,18 +73,18 @@ void selection(int *t, int size)
 }
 
 void insertion(int *t, int size){
-    for (int i = 0; i < size; i++)
+    int j,tmp;
+    for (int i = 1; i < size; i++)
     {
-        
+        tmp = t[i];
+        j=i-1;
+        while (j>=0 && t[j]>tmp)
+        {
+            t[j+1] = t[j];
+            j--;
+        }
+        t[j+1]=tmp;
     }
     
 }
 
-int main()
-{
-    int t[] = {1, 4, 5, 2, 9, 0};
-    afficher_table(t, 6);
-    selection(t, 6);
-    printf("\n");
-    afficher_table(t, 6);
-}
